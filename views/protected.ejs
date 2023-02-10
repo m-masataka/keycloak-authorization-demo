@@ -1,0 +1,29 @@
+<html>
+<head>
+  <%- include('./partial/header'); %>
+</head>
+<body>
+<%- include('./partial/nav'); %>
+<hr/>
+<div class="container">
+    <div class="row">
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="card" style="width: 100%;">
+                <div class="card-body">
+                  <h5 class="card-title">Request Party Token</h5>
+                  <p class="card-text">
+                    <code>
+                        <pre>
+<%- JSON.stringify(decodedRPT, null, 2) %>
+                        </pre>
+                    </code>
+                  </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

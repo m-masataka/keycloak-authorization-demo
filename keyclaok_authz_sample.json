@@ -1,0 +1,85 @@
+{
+  "allowRemoteResourceManagement": true,
+  "policyEnforcementMode": "ENFORCING",
+  "resources": [
+    {
+      "name": "protected01",
+      "ownerManagedAccess": true,
+      "attributes": {},
+      "_id": "f3aea62e-eb20-4694-9403-543ab6484140",
+      "uris": [
+        "/protected01"
+      ],
+      "scopes": [
+        {
+          "name": "read"
+        },
+        {
+          "name": "write"
+        }
+      ],
+      "icon_uri": ""
+    },
+    {
+      "name": "Default",
+      "ownerManagedAccess": true,
+      "attributes": {},
+      "_id": "b04ec5bb-fe51-4192-b72e-c61f9824a038",
+      "uris": [
+        "/*"
+      ],
+      "icon_uri": ""
+    }
+  ],
+  "policies": [
+    {
+      "id": "8a04a767-f006-4ccf-a1d0-a9cd53df37e4",
+      "name": "demo-policy01",
+      "description": "",
+      "type": "role",
+      "logic": "POSITIVE",
+      "decisionStrategy": "UNANIMOUS",
+      "config": {
+        "roles": "[{\"id\":\"demo01/demo-role01\",\"required\":true}]"
+      }
+    },
+    {
+      "id": "d2c51d0d-1225-4645-9386-7c4af1137898",
+      "name": "allow-all",
+      "description": "",
+      "type": "role",
+      "logic": "POSITIVE",
+      "decisionStrategy": "UNANIMOUS",
+      "config": {
+        "roles": "[{\"id\":\"demo01/demo-role01\",\"required\":false}]"
+      }
+    },
+    {
+      "id": "5283415c-13ad-481b-b057-defd3d6a35cd",
+      "name": "demo-permission01",
+      "description": "",
+      "type": "resource",
+      "logic": "POSITIVE",
+      "decisionStrategy": "UNANIMOUS",
+      "config": {
+        "resources": "[\"protected01\"]",
+        "applyPolicies": "[\"demo-policy01\"]"
+      }
+    }
+  ],
+  "scopes": [
+    {
+      "id": "01a9af02-b2ef-4877-9437-fbcb58904e8f",
+      "name": "read",
+      "iconUri": "",
+      "displayName": "read"
+    },
+    {
+      "id": "fd8cbf0e-ae66-48f0-b7b7-b7d254919d0e",
+      "name": "write",
+      "iconUri": "",
+      "displayName": "write"
+    }
+  ],
+  "decisionStrategy": "UNANIMOUS"
+}

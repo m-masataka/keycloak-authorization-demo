@@ -1,0 +1,22 @@
+version: '3.7'
+services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:19.0.2
+    container_name: keycloak
+    tty: true
+    stdin_open: true
+    ports:
+      - "18080:8080"
+      - "19990:9990"
+    volumes:
+      - ./data/keycloak:/opt/keycloak/data
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: passwd
+    command:
+      - start-dev
+  front:
+    build:
+      context: ./
+    ports:
+      - 3000:3000

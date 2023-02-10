@@ -1,0 +1,27 @@
+{
+  "name": "keycloak-demo",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node app.js",
+    "format": "prettier --write '**/*.js'"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^16.0.3",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "express-session": "^1.17.3",
+    "http-errors": "~1.6.3",
+    "jwt-decode": "^3.1.2",
+    "log4js": "^6.7.1",
+    "morgan": "~1.9.1",
+    "node-fetch": "^3.3.0",
+    "openid-client": "^5.4.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.4"
+  }
+}
