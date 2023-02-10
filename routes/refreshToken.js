@@ -5,10 +5,9 @@ import Logger from "../lib/logger.js";
 // token refresh
 export const refreshToken = (req, res, next) => {
   (async () => {
-    const client = req.app.get('keycloakClient');
+    const client = req.app.get("keycloakClient");
     Logger.info("Token refresh");
-    const refresh = await client.Client
-      .refresh(req.session.refreshToken)
+    const refresh = await client.Client.refresh(req.session.refreshToken)
       .then((result) => {
         return result;
       })

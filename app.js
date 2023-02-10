@@ -37,13 +37,14 @@ app.use(
 
 // get client
 let client = undefined;
-const sleep = (second) => new Promise(resolve => setTimeout(resolve, second * 1000));
+const sleep = (second) =>
+  new Promise((resolve) => setTimeout(resolve, second * 1000));
 // waiting for connect keycloak
-for (let i = 1; i < 20; i++){
+for (let i = 1; i < 20; i++) {
   try {
     client = await Client.getClient();
     break;
-  } catch(error){
+  } catch (error) {
     Logger.info("waiting to connect keycloak %d s  ", i);
     Logger.warn(error);
     await sleep(i);
@@ -52,10 +53,10 @@ for (let i = 1; i < 20; i++){
 if (client == undefined) {
   throw new Error("Failed to connect keycloak");
 }
-app.set('keycloakClient', client)
+app.set("keycloakClient", client);
 
 const umaClient = await UmaClient.getClient();
-app.set('keycloakUMAClient', umaClient)
+app.set("keycloakUMAClient", umaClient);
 
 // import router
 import logoutRouter from "./routes/logout.js";

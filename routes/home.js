@@ -10,7 +10,7 @@ router.get(
   "/",
   (req, res, next) => {
     (async () => {
-      const client = req.app.get('keycloakClient');
+      const client = req.app.get("keycloakClient");
       // redirect login page, if acccess token is undefined
       if (req.session.accessToken == undefined) {
         res.redirect(client.Config.AppBaseUrl);
@@ -18,8 +18,7 @@ router.get(
       }
 
       // token introspection
-      const intro = await client.Client
-        .introspect(req.session.accessToken)
+      const intro = await client.Client.introspect(req.session.accessToken)
         .then((result) => {
           return result;
         })

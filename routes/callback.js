@@ -5,11 +5,10 @@ import { SetToken } from "../lib/session.js";
 
 // callback endpoint that handle oidc callback
 router.get("/", (req, res) => {
-  const client = req.app.get('keycloakClient');
+  const client = req.app.get("keycloakClient");
   const params = client.Client.callbackParams(req);
   const codeVerifier = client.Config.CodeVerifier;
-  client.Client
-    .callback(client.Config.AppCallbackUrl, params, { codeVerifier })
+  client.Client.callback(client.Config.AppCallbackUrl, params, { codeVerifier })
     .then(function (token) {
       // Save tokens to session
       SetToken(req.session, token);

@@ -12,8 +12,8 @@ const renderProtected = (req, res) => {
 router.get(
   "/",
   (req, res, next) => {
-    const client = req.app.get('keycloakClient');
-    const umaClient = req.app.get('keycloakUMAClient');
+    const client = req.app.get("keycloakClient");
+    const umaClient = req.app.get("keycloakUMAClient");
     (async () => {
       try {
         const rpt = await umaClient.getRPT(
